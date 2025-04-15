@@ -1,0 +1,27 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+    <div class="div-conten grid p-fluid">
+        <h6>Cerrar apertura de caja:</h6>  
+        <span class="pi pi-calendar-times"> Apertura actual: 
+            {{fecha_actual}}
+        </span>        
+        <br>       
+        <div class="row btn-position"> 
+            <div class="field col-12 md:col-3">                           
+                <div class="field col-12 md:col-3">
+                    <form [formGroup]="formId">
+                        <label for="integeronly">Id caja</label>
+                        <p-inputNumber inputId="integeronly" [(ngModel)]="idCaja" formControlName="idCaja" [readonly]="true"></p-inputNumber>
+                    </form>
+                </div>
+            </div> 
+            <br>                         
+            <div class="field col-12 md:col-3 mt-3">                           
+                <button  pButton pRipple type="button" label="1 - Imprimir ventas del dia" icon="pi pi-print" iconPos="left" class="p-button-success" (click)="functImprimeCuadreCaja();"></button>            
+            </div>
+            <div class="field col-12 md:col-3 mt-3">                           
+                <button  pButton pRipple type="button" label="2 - Migrar ventas del dia" icon="pi pi-file-import" iconPos="left" class="p-button-warning" (click)="funct_nex_model_exportar();"></button>                
+            </div>                   
+        </div>     
+    </div>
+</div>

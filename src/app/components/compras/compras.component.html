@@ -1,0 +1,240 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+<div class="div-container">
+<div class="row">
+  <div class="col-3 field">  
+    <h6> Compras:</h6>
+  </div>
+  <div class="col-5 field"></div>
+  <div class="col-4 field">
+    <span class="pi pi-calendar-times"> Fecha: 
+      {{fecha_actual}}
+    </span>
+  </div>
+</div> 
+
+<form [formGroup]="formCompras">
+<div class="row"> 
+  <div class="col-3 field">    
+      <label for="titulo">Documento de compra</label>             
+      <input #factura type="text" pInputText [style]="{'width':'15vw','height':'6vh'}" formControlName="factura" (keyup.enter)="on_enter_factura($event)" autocomplete="off" autofocus/>         
+  </div>
+  <div class="col-3 field">      
+    <label for="titulo">Tipo de compra</label> 
+    <p-dropdown #varios class="dropdown-w" [options]="tipo_compra" optionValue="code" optionLabel="name" [showClear]="true" [style]="{'width':'20vw',height:'6vh'}" formControlName="varios"></p-dropdown>
+  </div>
+  <div class="col-6 field"></div>  
+</div> 
+</form>
+
+<hr>
+
+<form [formGroup]="formCompras2">
+<div class="row mt-element">    
+    <div class="col-4 field"> 
+      <label for="titulo">Lea código producto</label>         
+      <input #codigo type="text" pInputText [style]="{'width':'20vw','height':'5vh'}" formControlName="codProd" (keyup.enter)="on_enter_codigo_producto($event);" autocomplete="off"/>          
+    </div>
+    <div class="col-6 field">
+      <label for="titulo">Descripción producto</label> 
+      <input type="text" pInputText [style]="{'width':'30vw','height':'5vh'}" formControlName="descrip" autocomplete="off"/>
+    </div>   
+    <div class="col-2 field">      
+    </div>   
+</div>
+<div class="row mt-element">    
+  <div class="col-2 field">    
+      <label for="titulo">Precio unitario:</label>     
+      <p-inputNumber #miInputNumber size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="precio_und" (keyup.enter)="on_enter_precio_unitario($event)" autocomplete="off"/>       
+  </div>
+  <div class="col-2">  
+      <label for="titulo-8">Cantidad:</label>       
+      <input #cantidad type="number" pInputText [style]="{'width':'10vw','height':'5vh'}" formControlName="cantidad" (keyup.enter)="on_enter_cantidad($event)" autocomplete="off">     
+  </div>
+  <div class="col-2 field">   
+      <label for="titulo-2">Subtotal sin iva</label>
+      <p-inputNumber size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="costo_sin_iva" (keyup.enter)="on_enter_sub_total($event)" autocomplete="off"/>  
+  </div>
+  <div class="col-2 field">   
+      <label for="titulo-3">% Descuento:</label>          
+      <input #desc type="number" pInputText [style]="{'width':'10vw','height':'5vh'}" formControlName="desc" (keyup.enter)="on_enter_descuento($event)">    
+  </div>
+  <div class="col-2">
+    <label for="titulo-3">Total Descuento:</label>          
+    <p-inputNumber size="10" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_desc"/>    
+  </div> 
+  <div class="col-2"></div>    
+</div>
+<div class="row mt-element">
+  <div class="col-2 field">    
+      <label for="titulo-4">% Iva:</label>           
+      <input #iva type="number" pInputText [style]="{'width':'10vw','height':'5vh'}" formControlName="iva" (keyup.enter)="on_enter_iva($event)" autocomplete="off">
+  </div>
+  <div class="col-2 field">    
+      <label for="titulo-5">Total Iva:</label>       
+      <p-inputNumber size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="totaliva" autocomplete="off"/>
+  </div> 
+  <div class="col-2 field">
+    <label for="titulo-9">% Icui:</label>       
+    <input #icui type="number" pInputText [style]="{'width':'10vw','height':'5vh'}" formControlName="icui" (keyup.enter)="on_enter_icui($event)" autocomplete="off">      
+  </div>
+  <div class="col-2 field">
+    <label for="titulo-9">Total Icui:</label>       
+    <p-inputNumber size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="totalicui" autocomplete="off"/>      
+  </div>
+  <div class="col-2 field">
+    <label for="titulo-9">Costo total + iva:</label>       
+    <p-inputNumber size="10" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_costo" (keyup.enter)="on_enter_total_costo($event)" autocomplete="off"/>      
+  </div>
+  <div class="col-2">
+
+  </div>            
+</div>
+
+<div class="row mt-element"> 
+  <div class="col-2">   
+    <label for="titulo-3">Costo unidad:</label>      
+    <p-inputNumber size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="costo_und" autocomplete="off"/>
+  </div>  
+  <div class="col-2"> 
+    <div class="field md:col-3">
+      <label for="titulo-7">Utilidad:</label>        
+      <input #utilidad type="number" pInputText [style]="{'width':'10vw','height':'5vh'}" formControlName="utilidad" (keyup.enter)="on_enter_utilidad($event)" autocomplete="off"/>          
+    </div>
+  </div>   
+  <div class="col-2"> 
+    <div class="field md:col-2">
+      <label for="titulo-7">Precio venta:</label>        
+      <p-inputNumber #precioVenta size="12" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="precioVenta" autocomplete="off" />        
+    </div>
+  </div>
+  <div class="col-6 field"></div>    
+</div>
+</form> 
+<hr>
+
+<form [formGroup]="formCompras3">
+<div class="row mt-element">
+  <div class="col-2">    
+    <label for="titulo-7">Subtotal factura:</label>        
+    <p-inputNumber size="12" inputId="currency-us" [(ngModel)]="sub_total_form_fact" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="sub_total" autocomplete="off"/>
+  </div> 
+  <div class="col-2">    
+    <label for="titulo-8">Total descuento:</label>       
+    <p-inputNumber size="12" inputId="currency-us" [(ngModel)]="total_form_desc" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="total_descuento" autocomplete="off"/>
+  </div>      
+  <div class="col-2">    
+    <label for="titulo-8">Total iva:</label>       
+    <p-inputNumber size="12" inputId="currency-us" [(ngModel)]="total_form_iva" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="total_iva" autocomplete="off"/>
+  </div>
+  <div class="col-2">   
+    <label for="titulo-9">Total icui:</label>       
+    <p-inputNumber size="12" inputId="currency-us" [(ngModel)]="total_form_icui" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="total_icui" autocomplete="off"/>
+  </div> 
+  <div class="col-2">    
+    <label for="titulo-7">Total factura:</label>        
+    <p-inputNumber size="12" inputId="currency-us" [(ngModel)]="total_form_factura" mode="currency" currency="USD" locale="en-US" [style]="{'width':'8vw','height':'5vh'}" formControlName="total_factura" autocomplete="off"/>
+  </div>
+  <div class="col-2"></div>         
+</div>
+<hr>
+<div class="row mt-element">
+  <div class="col-3 field"></div>
+  <div class="col-4 field">
+    <p-button label="Ver detalle factura" styleClass="mr-2" icon="pi pi-book" styleClass="p-button-warning" badge={{total_registros}} badgeClass="p-badge-primary" (click)="show_dialog()"></p-button>
+  </div>
+  <div class="col-3 field">
+    <button pButton pRipple type="button" [disabled]="habilitado" label="Agregar" icon="pi pi-folder-open" class="p-button-raised p-button-success" [style]="{'width':'17vw'}" (click)="funct_registra_compras();"></button>
+  </div>
+  <div class="col-2 field"></div> 
+</div>
+</form>
+</div>
+</div>
+
+<p-dialog header="Detalle factura" [(visible)]="display" [modal]="true" [style]="{width: '99vw','height':'100vh'}" [draggable]="true" [resizable]="true" [position]="'center'">  
+  <div class="card">  
+    <div class="div-dialogo">  
+    <p-table [columns]="products" sortMode="multiple" selectionMode="single" class="custom-table" styleClass="p-datatable-sm" tableStyleClass="p-datatable-gridlines p-datatable-striped" [value]="products"  [scrollable]="true" [(selection)]="selectedProduct1" dataKey="cod_producto" [tableStyle]="{'min-width': '50rem'}"> 
+      <ng-template pTemplate="header">
+      <tr>
+          <th>Item</th>           
+          <th>Factura</th> 
+          <th>Código</th>       
+          <th>Descripción</th>
+          <th>Precio base</th> 
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th>Descuento</th>                    
+          <th>Valor iva</th>          
+          <th>Valor icui</th> 
+          <th>Costo und</th>
+          <th>Precio venta</th>  
+          <th>Total item</th>         
+          <th>Acción</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr> 
+      <td>{{rowData.id}}</td>
+      <td>{{rowData.num_factura}}</td> 
+      <td>{{rowData.cod_producto}}</td> 
+      <td>{{rowData.descripcion}}</td> 
+      <td>{{rowData.precio_unitario | currency}}</td> 
+      <td>{{rowData.cantidad}}</td>
+      <td>{{rowData.subtotal | currency}}</td>
+      <td>{{rowData.total_descuento | currency}}</td>
+      <td>{{rowData.total_iva | currency}}</td>
+      <td>{{rowData.total_icui | currency}}</td>
+      <td>{{rowData.costo_unidad | currency}}</td>          
+      <td>{{rowData.precio_venta | currency}}</td>
+      <td>{{rowData.total_compras | currency}}</td>                      
+      <td>
+        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-plain p-button-sm p-button2" (click)="funct_elimina_item_compras(rowData.id);"></button>                           
+      </td>        
+      </tr>       
+      </ng-template>             
+    </p-table>
+  </div> 
+  <form [formGroup]="formCompras4">
+  <div class="div-detalle-f">   
+    <div class="row">      
+      <div class="col-2"></div>           
+      <div class="col-2">
+        <div class="flex-auto">  
+          <label class="block font-bold mb-1" for="currency-us" >Subtotal factura:</label>        
+          <p-inputNumber size="11" inputId="currency-us" [(ngModel)]="sub_total_item_fact" mode="currency" currency="USD" locale="en-US" [disabled]="true" [style]="{'height':'5vh'}" formControlName="sub_total2" autocomplete="off"/>
+        </div>
+      </div>  
+      <div class="col-2"> 
+        <div class="flex-auto">     
+          <label  class="block font-bold mb-1" for="currency-us">Total descuento:</label>       
+          <p-inputNumber size="11" inputId="currency-us" [(ngModel)]="total_item_desc" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_descuento2" autocomplete="off"/>
+        </div>
+      </div>      
+      <div class="col-2">
+        <div class="flex-auto">      
+          <label  class="block font-bold mb-1" for="currency-us">Total iva:</label>       
+          <p-inputNumber size="10" inputId="currency-us" [(ngModel)]="total_item_iva" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_iva2" autocomplete="off"/>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="flex-auto">     
+          <label  class="block font-bold mb-1" for="currency-us">Total icui:</label>       
+          <p-inputNumber size="10" inputId="currency-us" [(ngModel)]="total_item_icui" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_icui2" autocomplete="off"/>
+        </div>
+      </div> 
+      <div class="col-2">
+        <div class="flex-auto">      
+          <label  class="block font-bold mb-1" for="currency-us">Total factura:</label>        
+          <p-inputNumber size="10" inputId="currency-us" [(ngModel)]="total_item_factura" mode="currency" currency="USD" locale="en-US" [style]="{'height':'5vh'}" formControlName="total_factura2" autocomplete="off"/>
+        </div>
+      </div>                
+    </div>  
+  </div>
+</form>
+</div> 
+<ng-template pTemplate="footer">
+  <p-button icon="pi pi-save" [disabled]="habilitado" label="Guardar" styleClass="p-button-success" (click)="funct_registra_compras_historico();"></p-button>
+</ng-template>
+</p-dialog>

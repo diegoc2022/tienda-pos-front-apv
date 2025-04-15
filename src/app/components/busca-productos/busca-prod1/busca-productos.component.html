@@ -1,0 +1,38 @@
+
+<p-dialog header="Productos:" [(visible)]="visible" styleClass="p-dialog">
+    <div class="div-dialogo">       
+        <div class="card">                 
+        <div class="row align-items-start">
+          <p-table #dt1 [value]="dataBuscaProductos" selectionMode="single" styleClass="p-datatable-sm p-datatable-striped" 
+          [scrollable]="true" scrollHeight="38vh" [(selection)]="selectedProduct1" dataKey="codProd" 
+          (onRowSelect)="onRowSelect($event)" [rows]="25" [showCurrentPageReport]="true" [rowsPerPageOptions]="[25,50]"
+          [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">          
+          <ng-template pTemplate="caption">         
+            <p-columnFilter type="text" field="descripcion" [showMenu]="true" [matchMode]="'contains'"></p-columnFilter>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>                               
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Existencia</th> 
+                <th>Precio venta</th> 
+                <th>Acciòn</th>                                   
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dataProductos>
+          <tr [pSelectableRow]="dataProductos">   
+            <td>{{dataProductos.codProd}}</td> 
+            <td>{{dataProductos.descripcion}}</td>
+            <td>{{dataProductos.existencia}}</td>
+            <td>{{dataProductos.precio_venta | currency}}</td> 
+            <td style="flex: 5rem 5rem 5rem" class="centered">
+              <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-plain p-button-sm p-button2" (click)="funct_elimina_productos(dataProductos);"></button>
+            </td>                             
+          </tr>    
+          </ng-template>  
+        </p-table>       
+        </div>      
+       </div>                   
+    </div>    
+  </p-dialog>
+

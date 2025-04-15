@@ -1,0 +1,21 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+    <div class="div-conten grid p-fluid">
+        <h6>Crear apertura de caja:</h6>  
+        <span class="pi pi-calendar-times"> Apertura actual: 
+            {{fecha_actual}}
+        </span>      
+        <div class="row btn-position"> 
+            <div class="field col-12 md:col-3">              
+                <form [formGroup]="formId">
+                    <label for="integeronly">Ingrese total base de caja</label>
+                    <p-inputNumber inputId="integeronly" formControlName="base"></p-inputNumber>
+                </form>                
+            </div> 
+            <br>                         
+            <div class="field col-12 md:col-3 mt-3">                           
+                <button  pButton pRipple type="button" label="Generar apertura de caja" icon="pi pi-print" iconPos="left" class="p-button-success" (click)="funcAperturaCaja();"></button>            
+            </div>                   
+        </div>     
+    </div>
+</div>

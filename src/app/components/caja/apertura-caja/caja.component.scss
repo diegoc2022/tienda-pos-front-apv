@@ -1,0 +1,117 @@
+/* Estilos adicionales para pantallas pequeñas (hasta 1366px de ancho) */
+@media screen and (max-width: 1366px){
+  .div-conten{
+    border-radius: 5px;
+    width: 350px;
+    height: 47vh; 
+    margin-left:0px;
+    margin-top: 15px;
+    padding: 25px;
+    background: #4568DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  }
+}
+    
+/* Estilos para pantallas medianas y pequeñas (hasta 1600px de ancho) */
+@media screen and (min-width: 1600px) {
+  .div-conten{
+    border-radius: 5px;
+    width: 320px;
+    height: 38vh; 
+    margin-left: 7px;
+    margin-top: 10px;
+    padding: 25px;
+    background: #4568DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  } 
+}
+    
+h6, label, span{
+  color:white
+}
+    
+.spacing{
+  margin-top: 10px;
+}
+
+.btn-position{
+  float: inline-end; 
+  margin-top: 20px;
+}
+:host ::ng-deep .p-button {
+  margin-right: .2rem;    
+}
+
+:host ::ng-deep .p-table {
+  border-radius: 5px; 
+  table-layout: fixed;  
+  max-height:1px;    
+}
+
+
+:host ::ng-deep .p-buttonset {
+  .p-button {
+      margin-right: 0;
+  }
+}
+
+:host ::ng-deep .sizes {
+  .button {
+      margin-bottom: .2rem;
+      display: block;
+      &:last-child {
+          margin-bottom: 0;
+          
+      }
+  }
+}
+
+.color-white{   
+ color: white;
+}
+
+.p-button-w-h{
+  height: 50px;
+  width: 50px;
+}
+
+.outofstock {
+  font-weight: 700;
+  color: #FF5252;
+  text-decoration: line-through;
+}
+
+.lowstock {
+  font-weight: 700;
+  color: #FFA726;
+}
+
+.instock {
+  font-weight: 700;
+  color: black;
+}
+
+:host ::ng-deep .row-accessories {
+  background-color:#FADBD8 !important;     
+}
+
+tr.low-rated{ 
+  background-color: red; 
+  color: white;
+} 
+
+
+.p-datatable th {
+  background-color: #f0f0f0; /* Color de fondo del encabezado */
+  border: 1px solid #ccc; /* Borde de las celdas del encabezado */
+  padding: 8px; /* Espaciado interno de las celdas del encabezado */
+  text-align: left; /* Alineación del texto en las celdas del encabezado */
+  height: 10vh;
+}
+
+
+
+
+

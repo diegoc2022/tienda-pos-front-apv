@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;   
+}
+
+.container-fluid {
+    display: flex;   
+    width:100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(61, 50, 211);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.middle {    
+    display: block;  
+    position: absolute;
+    width: 100%;  
+    height: 100vh; 
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.login-container {
+    border: 1px solid white;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    max-width: 350px;   
+    min-height: 70vh;
+    margin: 3% auto;
+    border-radius: 10px;
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.div-1{
+    border: 1px solid white ;
+    width: 100%;
+    max-height: 35vh;
+    background: #fff;
+    border-radius: 5px;
+}
+.div-2{
+    border: 1px solid white ;
+    width: 100%;
+    min-height: 50vh;
+    max-height: 50vh;    
+    border-radius: 10px;
+}
+
+.div-3{   
+    background: white;
+    width: 100%;
+    min-height: 50vh;
+    max-height: 50vh;    
+    border-radius: 10px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    width: 100%;   
+    max-height: 30vh;   
+    border-radius: 10px;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+}
+
+.card-border{
+    border: 1px solid blue    
+}
+
+label{
+    font-size: 13px;
+}
+
+.contrato{
+    flex: 1;
+    display: flex; 
+    width: 100%; 
+    height: 40px;    
+    text-align: left;
+    font-size: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .container-fluid {
+        flex-direction: column;
+        width: 100%;
+    }
+    .login-container {
+        flex-direction: column;         
+        min-width:60vw;
+        max-width: 400px;
+        min-height: 80vh;
+        min-height: 300px;
+        margin-top: 17%;
+        border-radius: 10px;
+    }
+    .image-container {
+        border-radius: 8px 8px 0 0;
+        height: 200px;
+        border-radius: 10px;
+    } 
+    
+    .div-1{    
+        border-radius: 10px;
+    }
+
+    .contrato{   
+       margin-top: 10px;
+    }    
+}
+
+:host ::ng-deep {
+    .p-toast-message-custom {
+        background-color: #E1CFE7;
+        border: solid #8A427A;
+        border-width: 0 0 0 6px;
+        color: #2c1e30;
+        .p-toast-icon-close {
+            color: #2c1e30;
+        }
+    }
+}
+
+.btn{
+    width: 100%;
+    text-align: right;
+}
+
+.my-checkbox .p-checkbox-label {
+    margin-left: 10px; /* Ajusta el valor según sea necesario */
+}

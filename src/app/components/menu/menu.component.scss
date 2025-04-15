@@ -1,0 +1,95 @@
+/* Estilos para pantallas medianas y pequeñas (hasta 1366px de ancho) */
+@media screen and (max-width: 1366px){
+:host ::ng-deep .p-menubar {  
+   height: 8vh;   
+   border-radius: 5px;
+   border: 1px solid; 
+   margin-top: 3px;
+   margin-left:2px;   
+   margin-right: 5px; 
+   z-index: 10;
+   background: #4568DC;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to bottom, #4568DC, #B06AB3);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to bottom, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+}
+
+:host ::ng-deep .p-menuitem{
+  top: 7px;
+  height: 40px; 
+  width: 230px;
+  background:white;  
+  border-radius: 5px;  
+  z-index: 10;  
+  text-decoration: none;
+  margin-left: 3px;
+}
+
+:host ::ng-deep .p-menuitem-link{  
+  text-decoration: none;
+  z-index: 10; 
+  margin-left: 2px;  
+}
+
+}
+
+/* Estilos para pantallas medianas y pequeñas (hasta 1600px de ancho) */
+@media screen and (min-width: 1600px) {
+  :host ::ng-deep .p-menubar {  
+     height: 7vh;   
+     border-radius: 5px;
+     border: 1px solid; 
+     margin-top: 3px;
+     margin-left:2px;   
+     margin-right: 5px; 
+     z-index: 10;
+     background: #4568DC;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom,#4568DC, #B06AB3 );  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom,#4568DC #B06AB3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+      
+  }
+  
+  :host ::ng-deep .p-menuitem{
+    top: 7px;
+    height: 40px; 
+    width: 230px;
+    background:white;  
+    border-radius: 5px;  
+    z-index: 10;  
+    text-decoration: none;
+    margin-left: 3px;
+  }
+  
+  :host ::ng-deep .p-menuitem-link{  
+    text-decoration: none;
+    z-index: 10; 
+    margin-left: 2px;  
+  }
+  
+  }
+  
+
+img{
+  border-radius: 5px;
+}
+
+:host ::ng-deep .p-menu-bar {
+  background: #333 !important; /* Ejemplo de color */
+}
+
+.p-menu-bar .p-menuitem {
+  padding: 5px 10px; /* Ejemplo de espaciado */
+}
+
+::ng-deep .p-menu-bar .p-menuitem-link {
+  transition: background-color 0.3s ease;
+}
+
+:host ::ng-deep .p-menu {
+  background-color:red !important; /* Color de fondo */
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link {
+  transition: background-color 0.3s ease;
+}
+
+

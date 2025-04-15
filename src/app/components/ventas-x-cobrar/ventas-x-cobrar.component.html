@@ -1,0 +1,17 @@
+<div class="container-fluid"> 
+    <div class="conten-ppal">
+        <form [formGroup]="data">   
+            <div class="row mt-2">        
+                <div class="col-3 field">                  
+                    <p-dropdown [options]="clientes" optionValue="codigo_cliente" optionLabel="nombre" [panelStyle]="{'max-height': '500px', 'overflow-x': 'auto'}" [showClear]="true" [style]="{'width':'24vw',height:'7vh'}" formControlName="cliente"></p-dropdown>                                   
+                </div>                  
+                <div class="col-3 field">                
+                    <div class="flex justify-center gap-4">
+                        <p-button label="Guardar" icon="pi pi-save" severity="success" [style]="{'width':'10vw','height':'7vh'}"/>
+                    </div>
+                </div>
+                <div class="col-6 field"></div>
+            </div> 
+        </form>  
+    </div>
+</div>

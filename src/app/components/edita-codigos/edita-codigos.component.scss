@@ -1,0 +1,97 @@
+/* Estilos adicionales para pantallas pequeñas (hasta 1366px de ancho) */
+@media screen and (max-width: 1366px){
+   .div-dialogo{
+      border-radius: 5px;
+      width: 98.7%;
+      height:460px;
+      margin-left: 5px;
+      margin-top: 5px;
+      background: #1e3c72;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+      padding: 20px;  
+    } 
+
+    .caja-2{
+        border-radius: 5px;
+        width: 98.7%;
+        height: 75px;       
+        margin-left: 5px;
+        margin-top: 5px;
+        background: #1e3c72;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+        padding-top: 2px;  
+        padding-left: 15px;
+    }  
+    
+    :host ::ng-deep .p-datatable {
+      max-width: 100%; // Establece el ancho máximo
+      max-height: 365px;
+      overflow-x: auto; // Habilita el desplazamiento horizontal 
+    }
+  
+  }
+  
+  /* Estilos para pantallas medianas y pequeñas (hasta 1600px de ancho) */
+  @media screen and (min-width: 1600px) {
+    .div-dialogo{
+      border-radius: 5px;
+      width: 98.7%;
+      height:570px;
+      margin-left: 5px;
+      margin-top: 5px;
+      padding: 20px; 
+      background: #1e3c72;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+       
+    } 
+
+    .caja-2{
+        border-radius: 5px;
+        width: 98.7%;
+        height: 85px;       
+        margin-left: 5px;
+        margin-top: 5px;
+        padding-top: 2px;  
+        padding-left: 15px;
+        background: #1e3c72;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+        
+    }
+
+    :host ::ng-deep .mi-checkbox .p-checkbox-box {
+      border: 2px solid blue; /* Ajusta el color y el grosor del borde */
+      border-radius: 4px; /* Opcional: ajusta el radio de los bordes */
+    }
+
+    :host ::ng-deep .p-datatable {
+      max-width: 100%; // Establece el ancho máximo
+      max-height: 470px;
+      overflow-x: auto; // Habilita el desplazamiento horizontal       
+  }
+
+  }
+
+  label{
+    color: white;
+  }
+
+  .titulo{
+    color: black;
+  }
+
+  .btn{
+    width: 200px;
+    border-radius: 10px;
+  }
+
+  :host ::ng-deep .p-column-filter input {
+    height: 35px;  /* Ajusta la altura según lo necesites */
+    font-size: 15px;  /* También puedes ajustar el tamaño de la fuente */
+    padding: 4px;  /* Ajusta el padding si es necesario */
+    border: 1px solid blue;
+  }
+  

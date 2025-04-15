@@ -1,0 +1,36 @@
+@media screen and (min-width:1366px) {
+    .conten-ppal{padding: 20px;
+        width: 300px;
+        border-radius: 5px;
+        height: 510px;
+        margin: 1% auto;
+        background: #1e3c72;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .conten-ppal{padding: 20px;
+        width: 300px;
+        border-radius: 5px;
+        height: 520px;
+        margin: 5% auto;
+        background: #1e3c72;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #B06AB3, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #B06AB3, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    }
+}
+
+hr{
+    color: white;
+    border: 1px solid;
+}
+
+p{
+    color: white;
+    font-size: 12px;
+}
+h6{
+    color: white;
+}

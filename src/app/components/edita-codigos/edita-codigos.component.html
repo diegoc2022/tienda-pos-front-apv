@@ -1,0 +1,69 @@
+<p-toast></p-toast>
+<div class="div-dialogo">       
+    <div class="card">
+    <div class="row align-items-start">
+      <div class="field col-12 m-2">                   
+        <label class="titulo" for="titulo">Otras ediciones</label>
+        <div class="field-checkbox"> 
+        <form [formGroup]="formCheck">    
+          <p-checkbox [(ngModel)]="onChecked" [binary]="true" inputId="binary" (onChange)="onCheckboxChange($event)" formControlName="option" styleClass="mi-checkbox"></p-checkbox>      
+        </form>
+        </div>
+      </div>        
+    </div>                 
+    <div class="row align-items-start">
+      <div class="field col-12">
+      <p-table #dt1 [value]="dataBuscaProductos" selectionMode="single" styleClass="p-datatable-sm p-datatable-striped" 
+      [scrollable]="true" [(selection)]="selectedProduct1" dataKey="codProd" 
+      (onRowSelect)="onRowSelect($event)" [rows]="50" [showCurrentPageReport]="true" [rowsPerPageOptions]="[25,50]"
+      [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">          
+      <ng-template pTemplate="caption">         
+        <p-columnFilter type="text" field="descripcion" [showMenu]="true" [matchMode]="'contains'" styleClass="p-column-filter"></p-columnFilter>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>                               
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Existencia</th> 
+            <th>precio venta</th>                                  
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dataProductos>
+      <tr [pSelectableRow]="dataProductos">   
+        <td>{{dataProductos.codProd}}</td> 
+        <td>{{dataProductos.descripcion}}</td>
+        <td>{{dataProductos.existencia}}</td>
+        <td>{{dataProductos.precio_venta | currency}}</td>                           
+      </tr>    
+      </ng-template>  
+    </p-table>
+    </div>    
+   </div>
+   </div>  
+  </div>
+
+   <div class="caja-2">
+    <form [formGroup]="formData">
+   <div class="row">
+    <div class="col-2">
+        <div class="field">
+            <label for="codInit" class="block">Código inicial: </label>
+            <input id="codInit" type="text" [style]="{'width':'16vw','height':'6vh'}" pInputText [(ngModel)]="value" readonly formControlName="codInicial"/>            
+        </div>
+    </div>
+
+    <div class="col-2">        
+        <div class="field">
+            <label for="codNuevo">{{placeholder}}</label>
+            <input id="codNuevo" type="text" [style]="{'width':'16vw','height':'6vh'}" pInputText formControlName="codNuevo" (keyup.enter)="onEnterCodigoProducto($event);" autocomplete="off"/>            
+        </div>
+    </div>  
+    <div class="col-2">
+        <button pButton pRipple type="button" label="Editar" icon="pi pi-save" [style]="{'width':'10vw','height':'6vh','margin-top':'23px'}" class="p-button-success p-button-lg" (click)="functEditaCodigo();"></button>
+    </div>
+    <div class="col-5"></div>
+    </div> 
+    </form>
+</div>   
+                    
+  

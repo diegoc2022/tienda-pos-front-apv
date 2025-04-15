@@ -1,0 +1,36 @@
+<p-toast></p-toast>
+<div class="div-dialogo">       
+    <div class="card">
+    <div class="caja-2">
+        <h5> Movimientos:</h5>
+        <span class="pi pi-calendar-times"> Fecha: 
+            {{fecha_actual}}
+        </span> 
+        <hr>
+        <form >
+           <div class="row">
+            <div class="col-6">
+                <div class="field col-12 md:col-4">
+                    <label for="icon">Fecha inicial</label>
+                    <p-calendar [showIcon]="true" inputId="icon" dateFormat="dd-mm-yy" [style]="{'width':'25vw'}"></p-calendar>
+                </div>
+            </div>
+        
+            <div class="col-6">        
+                <div class="field col-12 md:col-4">
+                    <label for="icon">Fecha final</label>
+                    <p-calendar [showIcon]="true" inputId="icon" dateFormat="dd-mm-yy" [style]="{'width':'25vw'}"></p-calendar>
+                </div>
+            </div>           
+            </div>
+            <div class="row mt-4">                               
+                <div class="col-12 div-d"> 
+                    <button pButton pRipple type="button" icon="pi pi-search" label="Consultar" class="p-button-raised p-button-success"></button>
+                </div>
+                
+            </div> 
+            </form>
+        </div>   
+        
+    </div>
+</div>

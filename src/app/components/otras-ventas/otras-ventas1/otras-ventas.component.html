@@ -1,0 +1,38 @@
+<p-dialog header="Otras ventas:" [(visible)]="visible" styleClass="p-dialog" [modal]="true">
+  <div class="div-dialogo"> 
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="data" (ngSubmit)="functRetornaProducto()">            
+          <input id="codigoProd" type="text" pInputText class="p-inputtext-sm" [style]="{'width':'7vw','height':'5vh'}" formControlName="dlCodProducto" autofocus autocomplete="off">             
+        </form>   
+      </div>        
+    </div>
+    <hr>
+    <form [formGroup]="data2"> 
+      <div class="row field">           
+          <div class="col-2 field">
+            <label for="inputText1" class="block">Código</label>
+            <input #inputText1 type="text" pInputText formControlName="codProd" [style]="{'width':'100%','height':'5vh','background-color':'lightgray'}" readonly="true">        
+          </div>
+          <div class="col-4 field">
+            <label for="inputText2" class="block">Descripción</label>
+            <input #inputText2 type="text" pInputText formControlName="descripcion" [style]="{'width':'100%','height':'5vh','background-color':'lightgray'}" readonly="true">         
+          </div>
+          <div class="col-2 field">
+            <label for="inputText3" class="block">Existencia</label>
+            <input #inputText3 type="text" pInputText formControlName="existencia" [style]="{'width':'100%','height':'5vh','background-color':'lightgray'}" readonly="true">         
+          </div>
+          <div class="col-2 field">
+            <label for="inputText3" class="block">Cantidad</label>
+            <input #inputText4 type="text" pInputText formControlName="cant" [style]="{'width':'100%','height':'5vh','background-color':'lightgray'}" readonly="true">         
+          </div>
+          <div class="col-2 field">
+            <label for="inputText4" class="block">Total</label>
+            <input #inputText4 type="text" pInputText formControlName="precio_venta" [style]="{'width':'100%','height':'5vh'}" (keydown.enter)="functRegistraVenta();" >         
+          </div>    
+      </div>
+    </form> 
+</div>                   
+</div>    
+</p-dialog>

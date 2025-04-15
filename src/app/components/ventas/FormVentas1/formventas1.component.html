@@ -1,0 +1,202 @@
+<p-toast></p-toast>
+<div class="container-fluid" > 
+<div class="conten-ppal">
+<div class="encabezado">
+<div class="row">
+    <div class="col-3 field">      
+      <span class="pi pi-calculator p-date">
+        Facturación:
+      </span>    
+    </div>
+    <div class="col-6 field"></div>
+    <div class="col-3 field">    
+      <span class="pi pi-calendar-times p-date">     
+        Fecha apertura: {{fecha_apertura}}     
+      </span> 
+    </div>
+</div> 
+</div>
+<div class="row mt-2">    
+  <div class="col-7 field">
+    <form [formGroup]="data" (ngSubmit)="funct_retorna_productos()">     
+      <input #inputText type="text" pInputText class="input-test" formControlName="codProducto" autocomplete="off" [style]="{'width':'100%','height':'5vh'}" autofocus>
+    </form>   
+  </div>
+  <div class="col-2 field">
+    <div class="div-cc">
+      <div class="flex items-center gap-2">
+        <p-checkbox [(ngModel)]="isChecked" inputId="binary" [binary]="true" size="small" (onChange)="on_checkbox_change($event)"/> 
+        <label for="size_small" class="text-sm name-label"> Ventas por cobrar</label>
+    </div>
+    </div>
+  </div>
+  <div class="col-3 field">
+  <div class="div-right">
+    <button pButton pRipple type="button" icon="pi pi-print" class="p-button-rounded p-button-secondary btn-option" style="width:30px; height:28px;top:-1px;" title="Reimprimir facturas" (click)="funct_mostrar_dialog_reimprimir_factura();"></button> 
+    <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-info btn-option" style="width:30px; height:28px;top:-1px;" title="Buscar productos" (click)="functOrigengBuscaProductos();"></button>  
+    <button pButton pRipple type="button" icon="pi pi-cart-plus" class="p-button-rounded p-button-success btn-option" style="width:30px; height:28px;top:-1px;" title="Otras ventas" (click)="functVisibleDialogOtrasVentas();"></button>
+    <button pButton pRipple type="button" [disabled]="habilitado" icon="pi pi-save" class="p-button-rounded p-button-help btn-option" style="width:30px; height:28px;top:-1px;" title="Guardar e Imprimir" (click)="functVisibleDialogVentasFacturas1();"></button>
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger btn-option" style="width:30px; height:28px;top:-1px;" title="Limpiar pantalla" (click)="funct_elimina_id_ventas();"></button> 
+  </div>
+</div> 
+</div>
+
+<div class="content-center">
+  <div class="card">
+  <p-table [columns]="products" sortMode="multiple" selectionMode="single" class="custom-table" styleClass="p-datatable-sm" tableStyleClass="p-datatable-gridlines p-datatable-striped" [value]="products"  [scrollable]="true" [(selection)]="selectedProduct1" dataKey="id" [tableStyle]="{'min-width': '40rem'}"> 
+    <ng-template pTemplate="header">
+    <tr>  
+        <th pSortableColumn="id">Item <p-sortIcon field="code"></p-sortIcon></th>
+        <th style="display:none;">Id venta</th>                        
+        <th>Código producto</th>
+        <th>Descripción</th>
+        <th>Existencia</th> 
+        <th>Precio venta</th>
+        <th class="centered">Cantidad</th>            
+        <th>Subtotal</th>      
+        <th class="centered">Acción</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" *ngIf="total_articulos > 0">
+    <tr styleClass="ui-datatable-data" [ngClass]="{'row-accessories': rowData.existencia === 0}"> 
+    <td>{{rowData.id}}</td> 
+    <td style="display:none;">{{123}}</td> 
+    <td>{{rowData.codProd}}</td> 
+    <td >{{rowData.descripcion}}</td>
+    <td>
+      <div [ngClass]="rowData.existencia < '5' ? 'red-cell' : 'green-cell'">
+        {{rowData.existencia}}
+      </div>
+    </td>
+    <td>
+      <div [ngClass]=" rowData.precio_compra > rowData.precio_venta ? 'red-cell' : 'green-cell'">
+        {{rowData.precio_venta | currency:'$'}}
+      </div>          
+    </td> 
+    <td pEditableColumn class="centered">        
+    <p-cellEditor >
+    <ng-template pTemplate="input"> 
+    <form [formGroup]="data2">                       
+      <p-inputNumber [(ngModel)]="rowData.cantidad" [style]="{'width':'3vw','height':'4vh'}" [size]="1" (keydown.enter)="functEditaVentas(rowData)" formControlName="cantidad"></p-inputNumber>         
+    </form> 
+    </ng-template>
+    <ng-template pTemplate="output">
+      {{rowData.cantidad}}
+    </ng-template>
+    </p-cellEditor>        
+    </td> 
+    <td>{{rowData.subtotal | currency}}</td>                       
+    <td style="flex: 5rem 5rem 5rem" class="centered">
+      <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text p-button-plain p-button-sm p-button2" (click)="functEliminaItemVentas(rowData);"></button> 
+      <button pButton pRipple type="button" icon="pi pi-eye" *ngIf="rowData.venta_por_und" class="p-button-rounded p-button-text p-button-plain p-button-sm p-button2" (click)="funct_show_dualog(rowData);"></button> 
+    </td>        
+    </tr>       
+    </ng-template>             
+  </p-table> 
+</div> 
+<div class="div-carrito-vacio" *ngIf="total_articulos == 0"> 
+  <img src="../assets/img/carrito5.png" alt="img-login" class="img-carrito-vacio">  
+</div>       
+</div> 
+
+<div class="content-button"> 
+<div class="row mt-0"> 
+  <div class="col-12 field">  
+  <div class="div-total-pago">
+    Total a pagar: <span class="badge bg pi pi-calculator span-background" size="large"> {{total_venta | currency}}</span>
+  </div> 
+  <div class="div-factura">
+    Factura: <span class="badge bg pi pi-external-link span-background" size="large"> {{factura}}</span>
+  </div>   
+  <div class="div-total_artic">
+    Artículos: <span class="badge bg pi pi-cart-arrow-down span-background" size="large"> {{total_articulos}}</span>
+  </div>  
+</div>
+<app-otras-ventas></app-otras-ventas>
+<app-encabezado></app-encabezado>
+<app-busca-productos></app-busca-productos>
+<app-dialog-ventas-facturas1></app-dialog-ventas-facturas1>
+</div>
+</div> 
+</div>
+</div>  
+
+<p-dialog header="Producto unidad:" [(visible)]="visible">
+  <div class="div-dialogo">       
+      <div class="card">                 
+      <div class="row align-items-start">
+        <p-table #dt2 [value]="producto_unidad" selectionMode="single" styleClass="p-datatable-sm p-datatable-striped"
+        [scrollable]="true" scrollHeight="44vh" [(selection)]="selectedProduct2" dataKey="codProd" 
+        (onRowSelect)="onRowSelect($event)" [showCurrentPageReport]="true" 
+        [paginator]="false" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">          
+        <ng-template pTemplate="header">
+          <tr>                               
+              <th>Código</th>
+              <th>Descripción</th>
+              <th>Existencia</th> 
+              <th>Precio venta</th>                                  
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-dataProductos>
+        <tr [pSelectableRow]="dataProductos">   
+          <td>{{dataProductos.codProd}}</td> 
+          <td>{{dataProductos.descripcion}}</td>
+          <td>{{dataProductos.existencia}}</td>
+          <td>{{dataProductos.precio_venta | currency}}</td>                           
+        </tr>    
+        </ng-template>  
+      </p-table>       
+      </div>      
+     </div>                   
+  </div>    
+</p-dialog>
+
+<p-dialog header="Reimprimir facturas:" [(visible)]="visible2" styleClass="mi-dialogo">
+  <div class="card">
+    <div class="caja-2">              
+    <div class="row">
+      <div class="field col-12">    
+        <label for="titulo">Digite factura</label>
+        <form [formGroup]="formFactura">                
+          <input #factura2 type="text" pInputText [style]="{'width':'15vw','height':'5vh'}" formControlName="factura" autocomplete="off" autofocus />         
+        </form>     
+      </div>      
+    </div> 
+    <div class="row mt-3">     
+      <div class="field col-12">
+        <p-button label="Reimprimir" icon="pi pi-print" severity="success" [style]="{'width':'15vw'}" (click)="funct_reimprime_facturas();" />
+      </div>
+    </div> 
+  </div>  
+</div>  
+</p-dialog>
+
+<p-dialog header="Clientes:" [(visible)]="visible3" styleClass="mi-dialogo2" (onHide)="on_gialog_hide()">
+  <div class="card">
+    <div class="caja-3">
+    <form [formGroup]="data3">              
+    <div class="row">     
+      <div class="field col-12">     
+          <label for="titulo">Elija cliente</label> 
+          <p-dropdown [options]="clientes" optionValue="codigo_cliente" optionLabel="nombre" [panelStyle]="{'max-height': '500px', 'overflow-x': 'auto'}" [showClear]="true" [style]="{'width':'24vw',height:'7vh'}" formControlName="cliente" (onChange)="funct_retorna_one_cliente_c($event)"></p-dropdown>     </div>      
+    </div>
+    <div class="row mt-3">
+      <div class="field col-12">         
+        <label for="codigo">Código venta</label>
+        <input #codigo type="number" pInputText [style]="{'width':'24vw','height':'7vh'}" formControlName="codigo_venta" autocomplete="off" readonly>                 
+      </div>
+    </div> 
+  </form>   
+    <div class="row mt-4">     
+      <div class="field col-12">
+        <div class="btn-end">
+          <p-button label="Guardar" icon="pi pi-users" severity="success" [style]="{'width':'10vw'}" (click)="funct_registra_ventas_x_cobrar_c();" />
+        </div>
+      </div>
+    </div> 
+  </div>  
+</div>  
+</p-dialog>
+
+
+

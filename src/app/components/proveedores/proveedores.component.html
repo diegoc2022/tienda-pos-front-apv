@@ -1,0 +1,56 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+<div class="div-container">
+  <h6>Nuevo proveedor:</h6>
+  <span class="pi pi-calendar-times"> Fecha: 
+    {{fecha_actual}}
+  </span> 
+  <br>
+  <hr>
+<form [formGroup]="formProveedor">
+  <div class="row mt-3">               
+    <div class="field col-4">    
+      <label for="titulo">Nit proveedor:</label>
+      <input #nit type="text" [style]="{'width':'27vw','height':'6vh'}" pInputText formControlName="nit" (keyup.enter)="on_enter_codigo_proveedor($event)">      
+    </div>  
+    <div class="field col-8"></div> 
+  </div>  
+  <div class="row">               
+    <div class="field col-4">    
+      <label for="titulo">Nombre proveedor</label>
+      <input #proov type="text" [style]="{'width':'27vw','height':'6vh'}" pInputText formControlName="nombreProv" (keyup.enter)="on_enter_nombre_proveedor($event)">      
+    </div>  
+    <div class="field col-8"></div> 
+  </div>  
+  <div class="row"> 
+    <div class="field col-6">     
+      <label for="titulo">Dirección</label>      
+      <input #dir type="text" pInputText [style]="{'width':'27vw','height':'6vh'}" formControlName="dirProv" (keyup.enter)="on_enter_dir_proveedor($event)">    
+    </div> 
+    <div class="field col-6"></div>      
+  </div>
+  <div class="row">    
+    <div class="field col-6">     
+      <label for="titulo">Teléfono</label>      
+      <input #tel type="text" pInputText [style]="{'width':'20vw','height':'6vh'}" formControlName="telProv" (keyup.enter)="on_enter_tel_proveedor($event)">    
+    </div> 
+    <div class="field col-6"></div>     
+  </div>
+  <div class="row">    
+    <div class="field col-6">     
+      <label for="titulo">Ciudad</label>      
+      <p-dropdown #dropdown class="dropdown-w" [options]="options" optionValue="value" optionLabel="nombre" [showClear]="true" [style]="{'width':'20vw',height:'7vh'}" formControlName="ciudad"></p-dropdown>
+    </div> 
+    <div class="field col-6"></div>     
+  </div> 
+  <hr>  
+  <div class="row">
+    <div class="field col-8"></div>
+    <div class="field col-1 margin-top">      
+      <button pButton pRipple type="button" icon="pi pi-save" label="Guardar" [style]="{'width':'10vw'}" class="p-button-success" (click)="funct_registra_ptoverdor();"></button>      
+    </div>    
+    <div class="field col-3 margin-top"></div>     
+  </div>            
+</form>
+</div>
+</div>

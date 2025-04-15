@@ -1,0 +1,46 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+<div class="div-container">
+  <h6>Nuevo cliente:</h6>
+  <span class="pi pi-calendar-times"> Fecha: 
+    {{fecha_actual}}
+  </span> 
+  <br>
+  <hr>
+<form [formGroup]="data">
+  <div class="row mt-3">               
+    <div class="field col-4">    
+      <label for="titulo">Cédula:</label>
+      <input #nit type="text" class="form-control" [style]="{'width':'15vw','height':'5vh'}" pInputText formControlName="cedula" (keyup.enter)="on_enter_cedula_cliente($event)">      
+    </div>  
+    <div class="field col-8"></div> 
+  </div>  
+  <div class="row">               
+    <div class="field col-6">    
+      <label for="titulo">Nombre cliente</label>
+      <input #proov type="text" class="form-control" [style]="{'width':'20vw','height':'5vh'}" pInputText formControlName="nombre_cliente" (keyup.enter)="on_enter_nombre_cliente($event)">      
+    </div>  
+    <div class="field col-6"></div> 
+  </div> 
+  <div class="row">    
+    <div class="field col-6">     
+      <label for="titulo">Teléfono</label>      
+      <input #tel type="text" class="form-control" pInputText [style]="{'width':'20vw','height':'5vh'}" formControlName="telefono">    
+    </div> 
+    <div class="field col-6"></div>     
+  </div>
+</form>   
+<hr>  
+  <div class="row">
+    <div class="field col-5"></div>
+    <div class="field col-1 margin-top">      
+      <div class="card flex justify-center gap-4">
+        <p-button label="Guardar" icon="pi pi-save" severity="success" (click)="funct_registra_clientes_c();" [style]="{'width':'10vw','height':'7vh'}"/>
+      </div>
+    </div>    
+    <div class="field col-6 margin-top"></div>     
+  </div>            
+
+</div>
+</div>
+

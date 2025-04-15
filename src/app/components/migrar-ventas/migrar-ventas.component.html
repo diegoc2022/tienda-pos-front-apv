@@ -1,0 +1,52 @@
+<p-toast></p-toast>
+<div class="container-fluid" > 
+    <div class="conten-ppal">
+        <div class="encabezado">
+            <div class="row">
+                <div class="col-12 field">      
+                  <span class="pi pi-calculator p-date">
+                    Exportar datos: Ventas del día
+                  </span>    
+                </div>                               
+            </div>            
+            <div class="row mt-2"> 
+            <div class="col-9 fleld"></div>                       
+            <div class="col-3 field">
+              <div class="div-right">
+                <button type="button" class="btn btn-info" [style]="{'width':'22vw','height':'8vh'}"><span class="pi pi-save" (click)="funct_migrar_ventas_del_dia_c();"> Migrar ventas del dia</span></button>
+              </div>
+            </div>                  
+        </div>
+
+        <div class="content-center">
+            <div class="card">
+            <p-table [columns]="products" sortMode="multiple" selectionMode="single" class="custom-table" styleClass="p-datatable-sm" tableStyleClass="p-datatable-gridlines p-datatable-striped" [value]="products"  [scrollable]="true" [(selection)]="selectedProduct1" dataKey="id" [tableStyle]="{'min-width': '50rem'}"> 
+              <ng-template pTemplate="header">
+              <tr>  
+                  <th>Item</th>                                       
+                  <th>Código producto</th>
+                  <th>Descripción</th>
+                  <th>Existencia</th> 
+                  <th>Precio venta</th>
+                  <th class="centered">Cantidad</th>            
+                  <th>Subtotal</th>                 
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr styleClass="ui-datatable-data"> 
+              <td>{{rowData.id}}</td> 
+              <td style="display:none;">{{123}}</td> 
+              <td>{{rowData.codProd}}</td> 
+              <td>{{rowData.descripcion}}</td>
+              <td>{{rowData.existencia}}</td>
+              <td>{{rowData.precio_venta}}</td> 
+              <td class="centered">{{rowData.cantidad}}</td> 
+              <td>{{rowData.subtotal}}</td>              
+              </tr>       
+              </ng-template>             
+            </p-table> 
+          </div>          
+          </div>        
+    </div>
+</div>
+

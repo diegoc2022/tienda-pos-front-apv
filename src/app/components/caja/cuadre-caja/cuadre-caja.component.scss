@@ -1,0 +1,36 @@
+/* Estilos adicionales para pantallas pequeñas (hasta 1366px de ancho) */
+@media screen and (max-width: 1366px){
+  .div-conten{
+    border-radius: 5px;
+    width: 350px;
+    height: 54vh; 
+    margin-left:0px;
+    margin-top: 15px;
+    padding: 25px;
+    background: #4568DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  }
+}
+    
+
+/* Estilos para pantallas medianas y pequeñas (hasta 1600px de ancho) */
+@media screen and (min-width: 1600px) {
+  .div-conten{
+    border-radius: 5px;
+    width: 320px;
+    height: 47vh; 
+    margin-left: 7px;
+    margin-top: 10px;
+    padding: 25px;
+    background: #4568DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+  } 
+}
+  
+h6, label, span{
+  color:white
+}
+
+

@@ -1,0 +1,43 @@
+<p-toast></p-toast>
+<div class="container-fluid">
+<div class="div-container">
+  <h6>Nuevo producto:</h6>
+  <span class="pi pi-calendar-times"> Fecha: 
+    {{fecha_actual}}
+  </span> 
+  <br>
+  <hr>
+<form [formGroup]="formProductos">
+  <div class="row mt-3">               
+    <div class="field col-6">    
+      <label for="titulo">Lea código producto</label>
+      <input #user type="text" [style]="{'width':'22vw','height':'6vh'}" pInputText formControlName="codProd" (keyup.enter)="on_enter_codigo_producto($event)">      
+    </div>  
+    <div class="field col-6"></div> 
+  </div>  
+  <div class="row"> 
+    <div class="field col-6">     
+      <label for="titulo">Nombre del producto</label>      
+      <input id="nombre-p" type="text" pInputText [style]="{'width':'27vw','height':'6vh'}" formControlName="nombre" (keyup.enter)="on_enter_nombres_producto($event)">    
+    </div> 
+    <div class="field col-6"></div>      
+  </div>
+  <div class="row">    
+    <div class="field col-6">      
+      <label for="titulo">Elija proveedor</label> 
+      <p-dropdown #dropdown class="dropdown-w" [options]="data_proveedor" optionValue="nit" optionLabel="nombre" [showClear]="true" [style]="{'width':'30vw',height:'7vh'}" formControlName="codProv"></p-dropdown>
+    </div> 
+    <div class="field col-6"></div>     
+  </div>
+  <br>
+  <hr>  
+  <div class="row">
+    <div class="field col-8"></div>
+    <div class="field col-1 margin-top">      
+      <button pButton pRipple type="button" icon="pi pi-save" label="Guardar" [style]="{'width':'10vw'}" class="p-button-success" (click)="functGuardarNuevoProducto()"></button>      
+    </div>    
+    <div class="field col-3 margin-top"></div>     
+  </div>            
+</form>
+</div>
+</div>

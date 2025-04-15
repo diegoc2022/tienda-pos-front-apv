@@ -1,0 +1,45 @@
+<p-toast class="p-toast-icon-close"></p-toast>
+<div class="container-fluid">  
+    <div class="middle">
+      <div class="login-container">
+        <div class="div-1">
+          <img src="../assets/img/apymes3.png" alt="" class="image-container">
+        </div>
+       
+        <div class="div-2 mt-3">         
+          <div class="div-3 p-2 border-0">
+            <form [formGroup]="formLogin">
+              <br>               
+               <div class="col-12 md:col-4">
+                  <div class="p-inputgroup">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input type="text" #username class="form-control form-control-sm" pInputText formControlName="user" placeholder="Username" autocomplete="false" (keydown)="onEnterPressed($event)">         
+                  </div>
+                </div>             
+                <div class="col-12 md:col-4">
+                  <div class="p-inputgroup">
+                      <span class="p-inputgroup-addon mt-2"><i class="pi pi-lock"></i></span>
+                      <input type="password" #password  class="form-control form-control-sm mt-2" pInputText formControlName="passw" placeholder="Password" autocomplete="false">         
+                  </div>
+                </div> 
+                <div class="col-12 md:col-4">
+                  <div class="p-inputgroup mt-2">
+                    <span class="p-inputgroup-addon"><i class="pi pi-mobile"></i></span>
+                    <div class="field-checkbox">                                         
+                      <p-checkbox name="group1" [binary]="true" [(ngModel)]="onChecked" inputId="ny" class="m-2" formControlName="acceso" (onChange)="onCheckboxChange($event)"></p-checkbox>
+                      <label class="mb-2" for="ny"> Acceso móvil</label>
+                    </div>
+                  </div>
+                </div>                
+                <div class="btn">                                          
+                  <button pButton type="button" icon="pi pi-check-circle" label="Iniciar sesión" (click)="funcLogin()" class="p-button-success mt-3" style="width: 100%;"></button> 
+                </div>                 
+            </form>
+            <div class="contrato mt-3">
+              <i>Activación servicio: <br> Desde: 02-01-2025 hasta el 02-01-2026</i>
+            </div>
+            </div>
+        </div>    
+      </div>
+    </div>
+</div>

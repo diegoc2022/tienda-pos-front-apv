@@ -1,0 +1,48 @@
+{
+  "name": "my-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --configuration=production",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.4",
+    "@angular/cdk": "^18.2.14",
+    "@angular/common": "^18.0.4",
+    "@angular/compiler": "^18.0.4",
+    "@angular/core": "^18.0.4",
+    "@angular/forms": "^18.0.4",
+    "@angular/material": "^18.2.14",
+    "@angular/platform-browser": "^18.0.4",
+    "@angular/platform-browser-dynamic": "^18.0.4",
+    "@angular/router": "^18.0.4",
+    "@sweetalert2/ngx-sweetalert2": "^12.4.0",
+    "@types/jasmine": "^5.1.4",
+    "date-fns": "^3.6.0",
+    "install": "^0.13.0",
+    "jspdf": "^2.5.1",
+    "module_name": "^1.0.0",
+    "npm": "^10.8.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.15",
+    "rxjs": "^7.8.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.14.1",
+    "tslib": "^2.6.3",
+    "zone.js": "^0.14.7"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.5",
+    "@angular/cli": "^18.0.6",
+    "@angular/compiler-cli": "^18.0.4",
+    "jasmine-core": "^5.1.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-coverage": "^2.2.1",
+    "karma-jasmine": "^5.1.0",
+    "typescript": "^5.4.5"
+  }
+}
